@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/upload-artifact@v3
+        uses: actions/checkout@v3  # ✅ Correct action for checking out the code
 
       - name: Create test file
         run: echo "Hello" > hello.txt
