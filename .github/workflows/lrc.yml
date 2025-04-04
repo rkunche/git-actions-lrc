@@ -32,7 +32,7 @@ jobs:
         # To use this repository's private action,
         # you must check out the repository
         - name: Checkout
-          uses: actions/upload-artifact@v3.1.3
+          uses: actions/checkout@v4
         - name: Run test in LoadRunner Cloud
           uses: MicroFocus/lrc-gh-action@v1
           id: lrc_run_test
@@ -51,7 +51,7 @@ jobs:
           run: echo "LRC Run ID is ${{ steps.lrc_run_test.outputs.lrc_run_id }}"
         - name: Upload LRC results
           if: always()
-          uses: actions/upload-artifact@v3
+          uses: actions/upload-artifact@v4
           with:
             name: lrc-report-${{ steps.lrc_run_test.outputs.lrc_run_id }}
             path: ${{ github.event.inputs.lrc_output_dir }}
